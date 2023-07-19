@@ -1,36 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>API Button Example</title>
+    <title>URL Button Example</title>
 </head>
 <body>
-    <h1>API Button Example</h1>
-    <button id="fetchButton">Fetch Data from API</button>
-    <div id="dataContainer"></div>
+    <h1>URL Button Example</h1>
+    <button id="openUrlButton">Open URL</button>
 
     <script>
-        document.getElementById('fetchButton').addEventListener('click', fetchDataFromAPI);
+        document.getElementById('openUrlButton').addEventListener('click', openURL);
 
-        function fetchDataFromAPI() {
-            // Replace the API endpoint with the actual API you want to use
-            const apiUrl = 'JENKINS_URL/job/jobA/build?token=joba';
+        function openURL() {
+            // Replace the URL with the actual URL you want to open
+            const urlToOpen = 'JENKINS_URL/user/admin/my-views/view/all/job/jobA/build?token=joba';
 
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    displayData(data);
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
-        }
-
-        function displayData(data) {
-            const dataContainer = document.getElementById('dataContainer');
-            dataContainer.innerHTML = `
-                <h2>Title: ${data.title}</h2>
-                <p>Body: ${data.body}</p>
-            `;
+            // Open the URL in a new tab
+            window.open(urlToOpen, '_blank');
         }
     </script>
 </body>
